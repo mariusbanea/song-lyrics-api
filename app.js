@@ -60,7 +60,7 @@ function displaySearchData(data) {
         //Step 3c - if there are results, create an HTML results variable
         let htmlOutput = "<pre><code>" + data.lyrics + "</code></pre>";
 
-        //Step 3e - send the content of HTML results variable to the HTML - display them in the html page (use "<pre><code>" to auto format the lyrics)
+        //Step 3e - send the content of HTML results variable to the HTML - display them in the html page (use "<pre><code>" to auto format the lyrics mode details here https: //www.w3schools.com/tags/tag_code.asp and here https://www.w3schools.com/tags/tag_pre.asp )
         $('.js-search-results').html(htmlOutput);
     }
 }
