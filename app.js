@@ -45,8 +45,7 @@ function getDataFromApi(artist, title) {
 };
 
 
-Step 3 - display the results;
-sales process
+//Step 3 - display the results; sales process
 
 function displaySearchData(data) {
 
