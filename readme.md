@@ -33,7 +33,8 @@ AJAX basics https://www.w3schools.com/xml/ajax_intro.asp
 
 ## Where o I find the API documentation?
 
-https://repl.it/@thinkful/song-lyric-API-eval-question
+https://lyricsovh.docs.apiary.io/
+
 
 ## What is the API end point syntax?
 
@@ -49,4 +50,8 @@ Use event.preventDefault(); (mode details here https://www.w3schools.com/jquery/
 
 ## How do I format the lyrics after I receive them from the API?
 
-Use (<pre><code> + data.lyrics + </code></pre>)
+Use ('<pre><code>' + data.lyrics + '</code></pre>')
+
+## How do I make the website accesible?
+
+Visit https://courses.thinkful.com/web-dev-002v1/project/1.2.2
