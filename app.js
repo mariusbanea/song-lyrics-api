@@ -19,7 +19,7 @@ function getDataFromApi(artist, title) {
     // Step 2a - make the api call using the URL, dataType (JSON or JSONP), type (GET or POST)
     $.ajax({
             type: "GET",
-            url: 'https: //api.lyrics.ovh/v1/' + artist + '/' + title,
+            url: 'https://api.lyrics.ovh/v1/' + artist + '/' + title,
             dataType: 'json',
         })
 
