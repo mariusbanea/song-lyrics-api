@@ -1,7 +1,4 @@
 /*
-
-
-
 This app doesn't follow a11y best practices, and the JS file is incomplete.
 
 Complete the getDataFromApi, displaySearchData, and watchSubmit functions.
@@ -19,7 +16,7 @@ function getDataFromApi(artist, title) {
 
     //full AJAX intro https://www.w3schools.com/xml/ajax_intro.asp
 
-    // - Step 2a - make the api call using the URL, dataType (JSON or JSONP), type (GET or POST)
+    // Step 2a - make the api call using the URL, dataType (JSON or JSONP), type (GET or POST)
     $.ajax({
             type: "GET",
             url: 'https: //api.lyrics.ovh/v1/' + artist + '/' + title,
@@ -46,7 +43,6 @@ function getDataFromApi(artist, title) {
 
 
 //Step 3 - display the results; sales process
-
 function displaySearchData(data) {
 
     //Step 3a - console.log the results

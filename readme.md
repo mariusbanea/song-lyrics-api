@@ -31,7 +31,7 @@ for the Lyrics API white-board challenge (https://repl.it/@thinkful/song-lyric-A
 
 AJAX basics https://www.w3schools.com/xml/ajax_intro.asp
 
-## Where o I find the API documentation?
+## Where do I find the API documentation?
 
 https://lyricsovh.docs.apiary.io/
 
