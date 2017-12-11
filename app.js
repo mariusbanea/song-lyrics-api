@@ -1,4 +1,8 @@
-/* This app doesn't follow a11y best practices, and the JS file is incomplete.
+/*
+https://repl.it/@thinkful/song-lyric-API-eval-question
+
+
+This app doesn't follow a11y best practices, and the JS file is incomplete.
 
 Complete the getDataFromApi, displaySearchData, and watchSubmit functions.
 
@@ -9,26 +13,37 @@ You should make requests to this API: https://lyricsovh.docs.apiary.io/# .
 Also make any necessary adjustments to make this app accessible. */
 
 
-//how to build an API app
 
 
-// Step 1 - watch for user input; tell shopkeeper what shoe size,color
-// Step 1a - create a trigger
-// Step 1b - get user input
-// Step 1c - use the api function
 
 
-// Step 2 - define the function to make the api call; shopkeeper goes to warehouse to get shoe
-// Step 2a - make the api call using the URL, dataType (JSON or JSONP), type (GET or POST)
-// Step 2b - success scenario (call the function to display the results)
-// Step 2c - failure scenario (display errors)
+/* How to build an API app
+
+Step 1 - watch for user input; tell shopkeeper what shoe size, color
+- Step 1a - create a trigger
+- Step 1b - get user input
+- Step 1c - input validation
+- Step 1d - use the api function
 
 
-// Step 3 - display the results; sales process
-// Step 3a - console.log the results
-// Step 3b - create an HTML results variable
-// Step 3c - use a for loop to populate the empty HTML results variable (.each)
-// Step 3d - send the content of HTML results variable to the HTML ($("class or id name from the HTML").html(HTML results variable))
+Step 2 - define the function to make the api call; shopkeeper goes to warehouse to get shoe
+- Step 2a - make the api call using the URL, dataType (JSON or JSONP), type (GET or POST)
+- Step 2b - success scenario (call the function to display the results)
+- Step 2c - failure scenario (display errors)
+
+
+Step 3 - display the results; sales process
+- Step 3a - console.log the results
+- Step 3b - create an HTML results variable
+- Step 3c - use a for loop to populate the empty HTML results variable (.each)
+- Step 3d - send the content of HTML results variable to the HTML ($("class or id name from the HTML").html(HTML results variable)) */
+
+
+
+
+
+
+
 
 function getDataFromApi(artist, title) {
 
@@ -104,6 +119,7 @@ function watchSubmit() {
         if (title == '') {
             alert("Please select a title");
         }
+
         //use that artist and title values to call the getResults function defined at the top
         getDataFromApi(artist, title);
     });
