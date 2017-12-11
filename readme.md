@@ -50,7 +50,7 @@ Use event.preventDefault(); (mode details here https://www.w3schools.com/jquery/
 
 ## How do I format the lyrics after I receive them from the API?
 
-Use ('<pre><code>' + data.lyrics + '</code></pre>')
+Use (< pre >< code > + data.lyrics + < /code >< /pre >) wihout spaces inside html tags
 
 ## How do I make the website accesible?
 
