@@ -2,6 +2,8 @@
 
 for the Lyrics API white-board challenge (https://repl.it/@thinkful/song-lyric-API-eval-question)
 
+### Live preview: https://mariusbanea.github.io/thinkful-song-lyrics-api
+
 # FAQs
 
 
