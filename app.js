@@ -15,7 +15,7 @@ Also make any necessary adjustments to make this app accessible. */
 function watchSubmit() {
 
     //Step 1a - create a trigger
-    $(".js-search-form").submit(function (event) {
+    $(".js-search-form").submit(function(event) {
 
         //if the page refreshes when you submit the form use "preventDefault()" to force JavaScript to handle the form submission
         event.preventDefault();
@@ -34,8 +34,7 @@ function watchSubmit() {
         //Step 1c - input validation - validate title
         if (title == '') {
             alert("Please select a title");
-        }
-        else {
+        } else {
             //Step 1d - use the api function - use that artist and title values to call the getResults function defined at the top
             getDataFromApi(artist, title);
         }
@@ -50,22 +49,25 @@ function getDataFromApi(artist, title) {
     const url = `https://api.lyrics.ovh/v1/${artist}/${title}`;
     console.log(url);
 
-    // Step 2a - make the api call using the URL, dataType (JSON or JSONP), type (GET or POST)
+    //Step 2a - create the url
+    const url = `https://api.lyrics.ovh/v1/${artist}/${title}`;
+
+    // Step 2b - make the api call using the URL, dataType (JSON or JSONP), type (GET or POST)
     fetch(url)
 
-        //Step 2b - success scenario (call the function to display the results)
-        .then(response => {
+    //Step 2c - success scenario (call the function to display the results)
+    .then(response => {
             if (response.ok) {
                 return response.json();
             }
-            throw new Error(response);
+            throw new Error(response.statusText);
         })
         .then(responseJson => displaySearchData(responseJson))
 
-        // Step 2c - failure scenario (display errors)
-        .catch(err => {
-            console.log(err);
-        });
+    // Step 2d - failure scenario (display errors)
+    .catch(err => {
+        $("#error-message").text(`Something went wrong: ${err.message}`);
+    });
 };
 
 //Step 3 - display the results; sales process
@@ -79,8 +81,7 @@ function displaySearchData(responseJson) {
 
         //show and alert
         alert("No results");
-    }
-    else {
+    } else {
         //Step 3c - if there are results, create an HTML results variable
         let htmlOutput = "<pre><code>" + responseJson.lyrics + "</code></pre>";
 
