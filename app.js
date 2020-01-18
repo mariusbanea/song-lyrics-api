@@ -11,61 +11,6 @@ Also make any necessary adjustments to make this app accessible. */
 
 
 
-//Step 2 - define the function to make the api call; shopkeeper goes to warehouse to get shoe
-function getDataFromApi(artist, title) {
-
-    //full AJAX intro https://www.w3schools.com/xml/ajax_intro.asp
-
-    // Step 2a - make the api call using the URL, dataType (JSON or JSONP), type (GET or POST)
-    $.ajax({
-            type: "GET",
-            url: 'https://api.lyrics.ovh/v1/' + artist + '/' + title,
-            dataType: 'json',
-        })
-
-        //Step 2b - success scenario (call the function to display the results)
-        .done(function (dataOutput) {
-
-            //displays the external api json object in the console
-            console.log(dataOutput);
-            displaySearchData(dataOutput);
-        })
-
-        // Step 2c - failure scenario (display errors)
-        .fail(function (jqXHR, error, errorThrown) {
-
-            //display errors
-            console.log(jqXHR);
-            console.log(error);
-            console.log(errorThrown);
-        });
-};
-
-
-//Step 3 - display the results; sales process
-function displaySearchData(data) {
-
-    //Step 3a - console.log the results
-    console.log(data);
-
-    //Step 3b - if there are no results show errors
-    if (data.lyrics == "") {
-
-        //show and alert
-        alert("No results");
-    }
-
-    //
-    else {
-        //Step 3c - if there are results, create an HTML results variable
-        let htmlOutput = "<pre><code>" + data.lyrics + "</code></pre>";
-
-        //Step 3e - send the content of HTML results variable to the HTML - display them in the html page (use "<pre><code>" to auto format the lyrics mode details here https: //www.w3schools.com/tags/tag_code.asp and here https://www.w3schools.com/tags/tag_pre.asp )
-        $('.js-search-results').html(htmlOutput);
-    }
-}
-
-
 //Step 1 - watch for user input; tell shopkeeper what shoe size, color
 function watchSubmit() {
 
@@ -90,11 +35,61 @@ function watchSubmit() {
         if (title == '') {
             alert("Please select a title");
         }
-
-        //Step 1d - use the api function - use that artist and title values to call the getResults function defined at the top
-        getDataFromApi(artist, title);
+        else {
+            //Step 1d - use the api function - use that artist and title values to call the getResults function defined at the top
+            getDataFromApi(artist, title);
+        }
     });
 }
+
+
+//Step 2 - define the function to make the api call; shopkeeper goes to warehouse to get shoe
+function getDataFromApi(artist, title) {
+    console.log(artist, title);
+
+    const url = `https://api.lyrics.ovh/v1/${artist}/${title}`;
+    console.log(url);
+
+    // Step 2a - make the api call using the URL, dataType (JSON or JSONP), type (GET or POST)
+    fetch(url)
+
+        //Step 2b - success scenario (call the function to display the results)
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error(response);
+        })
+        .then(responseJson => displaySearchData(responseJson))
+
+        // Step 2c - failure scenario (display errors)
+        .catch(err => {
+            console.log(err);
+        });
+};
+
+//Step 3 - display the results; sales process
+function displaySearchData(responseJson) {
+
+    //Step 3a - console.log the results
+    console.log(responseJson);
+
+    //Step 3b - if there are no results show errors
+    if (responseJson.lyrics == "") {
+
+        //show and alert
+        alert("No results");
+    }
+    else {
+        //Step 3c - if there are results, create an HTML results variable
+        let htmlOutput = "<pre><code>" + responseJson.lyrics + "</code></pre>";
+
+        //Step 3e - send the content of HTML results variable to the HTML - display them in the html page (use "<pre><code>" to auto format the lyrics mode details here https: //www.w3schools.com/tags/tag_code.asp and here https://www.w3schools.com/tags/tag_pre.asp )
+        $('.js-search-results').html(htmlOutput);
+    }
+}
+
+
 
 
 
