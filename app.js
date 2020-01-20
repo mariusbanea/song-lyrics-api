@@ -58,11 +58,12 @@ function getDataFromApi(artist, title) {
             if (response.ok) {
                 return response.json();
             }
+            // DISPLAY ERRORS if the server connection works but the json data is broken
             throw new Error(response.statusText);
         })
         .then(responseJson => displaySearchData(responseJson))
 
-    // Step 2d - failure scenario (display errors)
+    // Step 2d - failure scenario (DISPLAY ERRORS if the server connection fails)
     .catch(err => {
         console.log(err);
     });
@@ -74,7 +75,7 @@ function displaySearchData(responseJson) {
     //Step 3a - console.log the results
     console.log(responseJson);
 
-    //Step 3b - if there are no results show errors
+    //Step 3b - if there are no results show errors (DISPLAY ERRORS if the server connection works and the json data is valid, but there are no resutls)
     if (responseJson.lyrics == "") {
 
         //show and alert
