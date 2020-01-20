@@ -46,11 +46,9 @@ function watchSubmit() {
 function getDataFromApi(artist, title) {
     console.log(artist, title);
 
-    const url = `https://api.lyrics.ovh/v1/${artist}/${title}`;
-    console.log(url);
-
     //Step 2a - create the url
     const url = `https://api.lyrics.ovh/v1/${artist}/${title}`;
+    console.log(url);
 
     // Step 2b - make the api call using the URL, dataType (JSON or JSONP), type (GET or POST)
     fetch(url)
@@ -66,7 +64,7 @@ function getDataFromApi(artist, title) {
 
     // Step 2d - failure scenario (display errors)
     .catch(err => {
-        $("#error-message").text(`Something went wrong: ${err.message}`);
+        console.log(err);
     });
 };
 
