@@ -22,20 +22,21 @@ function watchSubmit() {
 
         //Step 1b - get user input - get the artist value from the input box
         let artist = $(".js-query-artist").val();
+        //Step 1b - get user input - get the title value from the input box
+        let title = $(".js-query-title").val();
+
+        console.log(artist, title);
 
         //Step 1c - input validation - validate artist
         if (artist == '') {
             alert("Please select an artist");
         }
-
-        //Step 1b - get user input - get the title value from the input box
-        let title = $(".js-query-title").val();
-
         //Step 1c - input validation - validate title
-        if (title == '') {
+        else if (title == '') {
             alert("Please select a title");
-        } else {
-            //Step 1d - use the api function - use that artist and title values to call the getResults function defined at the top
+        }
+        //Step 1d - use the api function - use that artist and title values to call the getDataFromApi function defined bellow
+        else {
             getDataFromApi(artist, title);
         }
     });
